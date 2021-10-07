@@ -1,5 +1,5 @@
 import { combineReducers,createStore,applyMiddleware } from "redux";
-import { loginRes, RegisterUser } from "./Reducer/Reducer";
+import { LoadUser, loginRes, RegisterUser } from "./Reducer/Reducer";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -7,7 +7,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 const reducer = combineReducers({
 
     RegisterUser:RegisterUser,
-    loginRes:loginRes
+    loginRes:loginRes,
+    LoadUser:LoadUser
 })
 
 

@@ -118,6 +118,18 @@ router.route('/token').post(async(req,res)=>{
 
 })
 
+router.route('/').get((req, res) => {
+  UserSchema.find((error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      res.json(data)
+    }
+  })
+})
+
+
+
 router.route('/get').get(auth,async(req,res)=>{
 
 

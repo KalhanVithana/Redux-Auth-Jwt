@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Load_login, Load_Register, Sucess_login, Sucess_Register } from "../Constants/constant"
+import { Load_login, Load_Register, Load_userData, Sucess_login, Sucess_Register, Sucess_userData } from "../Constants/constant"
 
 export const SubmitData = (name,email,password)=>async(dispatch)=>{
 
@@ -21,6 +21,7 @@ export const SubmitData = (name,email,password)=>async(dispatch)=>{
 
 
     dispatch({type:Sucess_Register,payload:data})
+    
     }
 
     catch(e){
@@ -49,9 +50,31 @@ export const LoginUser = (email,password) =>async(dispatch)=>{
 
     localStorage.setItem("x-auth",data.data.token);
 
-
-
-
-
-
 }
+
+
+
+
+export const LoadUserList =()=>async(dispatch)=>{
+
+    try{
+       dispatch({type:Load_userData})
+   
+   
+      
+       const data =  await axios.get('http://localhost:4000/user/');
+   
+   
+       dispatch({type:Sucess_userData,payload:data.data})
+    
+    }
+    catch(e){
+   
+       dispatch({type:Error_data})
+   
+       console.log(e)
+    }
+   
+   
+   
+   }
