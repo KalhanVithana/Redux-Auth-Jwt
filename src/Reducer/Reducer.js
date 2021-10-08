@@ -46,18 +46,26 @@ export  const RegisterUser = (state = {user:[]},action)=>{
 
  }
 
- 
+const initialstate ={
+
+    userdata:[],
+    loading:false,
+}
 
 
- export const LoadUser =(state= {userdata:[]},action)=>{
+ export const LoadUser =(state= initialstate,action)=>{
 
     switch (action.type) {
         case Load_userData:
-            return{ loading:true}
+            return{ 
+                ...state,
+                loading:true}
             
             case Sucess_userData:
-            return{ loading:false,
-                ...state,userdata:action.payload
+            return{ 
+                ...state,
+                loading:false,
+                userdata:action.payload
                 }
     
     

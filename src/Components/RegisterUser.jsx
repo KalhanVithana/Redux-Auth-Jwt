@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import {useDispatch,useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 // import axios from 'axios'
 // import {useDispatch,useSelector} from 'react-redux'
 // import { GetUsers, Register } from '../Action/Action.type';
@@ -37,14 +37,14 @@ export default function RegisterUser() {
     const dispatch = useDispatch();
 
 
-       const submit= async(e)=>{
-            e.preventDefault();
+    const submit = async (e) => {
+        e.preventDefault();
 
-            dispatch(SubmitData(name,email,password));
+        dispatch(SubmitData(name, email, password));
 
-            alert('sucessfull')
+        alert('sucessfull')
 
-        }
+    }
 
     //     useEffect(async() => {
 
@@ -71,7 +71,7 @@ export default function RegisterUser() {
 
 
             <div className="card form" style={{ width: "50rem", marginLeft: "20rem", marginTop: "10rem" }}>
-            <h1>Register</h1>
+                <h1>Register</h1>
                 <div className="card-body">
                     <form onSubmit={submit}>
                         <div className="form-group">
@@ -79,13 +79,14 @@ export default function RegisterUser() {
                             <input type='text' value={name} onChange={(e) => {
                                 setname(e.target.value)
                             }} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                            <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div className="form-group">
                             <label className="frmlable">email</label>
                             <input type='text' value={email} onChange={e => {
                                 setemail(e.target.value)
                             }} className="form-control" id="exampleInputPassword1" placeholder="Password" />
+
+                            <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div className="form-group">
                             <label className="frmlable">Password</label>

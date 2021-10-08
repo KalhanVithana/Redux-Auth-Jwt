@@ -21,7 +21,7 @@ export const SubmitData = (name,email,password)=>async(dispatch)=>{
 
 
     dispatch({type:Sucess_Register,payload:data})
-    
+  
     }
 
     catch(e){
@@ -43,7 +43,7 @@ export const LoginUser = (email,password) =>async(dispatch)=>{
 
     const data = await axios.post('http://localhost:4000/user/login',formdata);
 
-    console.log(data)
+ 
 
     dispatch({type:Sucess_login,payload:data});
 
@@ -57,20 +57,22 @@ export const LoginUser = (email,password) =>async(dispatch)=>{
 
 export const LoadUserList =()=>async(dispatch)=>{
 
+
     try{
-       dispatch({type:Load_userData})
+      
    
-   
+        dispatch({type:Load_userData})
       
        const data =  await axios.get('http://localhost:4000/user/');
    
    
        dispatch({type:Sucess_userData,payload:data.data})
+       console.log(data)
+    
     
     }
     catch(e){
    
-       dispatch({type:Error_data})
    
        console.log(e)
     }
